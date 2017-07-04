@@ -1,0 +1,1 @@
+package com.book.integration;import com.book.BookApplication;import org.junit.runner.RunWith;import org.springframework.test.context.ContextConfiguration;import org.springframework.test.context.junit4.SpringRunner;@RunWith(SpringRunner.class)@ContextConfiguration(classes = BookApplication.class)public class IntegrationTestConfiguration {}
