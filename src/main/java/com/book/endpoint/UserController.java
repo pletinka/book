@@ -30,4 +30,18 @@ public class UserController {
     public UserDto addUser(@RequestBody UserDto userDto) {
         return userService.addUser(userDto);
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserDto removeUser(@PathVariable Long id) {
+        return userService.removeUser(id);
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.PUT,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserDto removeUser(@RequestBody UserDto userDto) {
+        return userService.updateUser(userDto);
+    }
 }
