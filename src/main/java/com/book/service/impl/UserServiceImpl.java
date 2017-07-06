@@ -33,5 +33,20 @@ public class UserServiceImpl implements UserService {
         commonDao.create(user);
         return getUserDto(user.getId());
     }
+
+    @Transactional
+    @Override
+    public UserDto removeUser(Long id) {
+        User user = commonDao.read(User.class, id);
+        commonDao.delete(user);
+        return userConverter.doForward(user);
+    }
+
+    @Transactional
+    @Override
+    public UserDto updateUser(UserDto userDto) {
+        User user = userConverter.doBackward(userDto);
+        return userConverter.doForward(commonDao.update(user));
+    }
 }
 
